@@ -1,0 +1,14 @@
+module test_tl;
+  reg t,e;
+  wire q,qb;
+  tlatch dut(.t(t),.e(e),.q(q),.qb(qb));
+  initial begin
+    $dumpfile("tlatch.vcd");
+    $dumpvars(1,test_tl);
+    $monitor("input e=%b t=%b output q=%b qb=%b",e,t,q,qb);
+    e=0;t=0;
+    #1e=0;t=1;
+    #1e=1;t=0;
+    #1e=1;t=1;
+  end
+endmodule
