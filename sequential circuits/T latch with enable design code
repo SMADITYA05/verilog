@@ -1,0 +1,15 @@
+module tlatch(input en, t,e, output reg q,qb);
+  always@(*)begin
+  if(en)begin
+  	if(e==1)begin
+    	assign q=~t;
+    	assign qb=t;
+  	end
+  	else begin
+    $display("invalid");
+  	end
+    else if(~en)begin
+      q=1'bx;
+    end
+  end
+endmodule
